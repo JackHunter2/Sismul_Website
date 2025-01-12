@@ -1,5 +1,0 @@
-{
-  "language": "python",
-  "pythonVersion": "3.9",
-  "start": "python app.py"
-}
