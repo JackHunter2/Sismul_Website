@@ -3,7 +3,7 @@
   "pythonVersion": "3.9",
   "phases": {
     "start": {
-      "cmd": "python app.py"
+      "cmd": "gunicorn -b 0.0.0.0:8080 app:app"
     }
   }
 }
