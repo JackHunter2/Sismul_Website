@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Restaurantly Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <ul>
+            <li>En</li>
+            <li><a href="#">De</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">Nasgor Nyoman</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#chefs">Chefs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block" href="#book-a-table">Book a Table</a>
+
+        <a class="btn-cart d-none d-xl-block text-dark" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i> Cart <span class="cart-count">0</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="cartModalLabel">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems" class="text-dark">
+            <!-- Cart items will be dynamically added here -->
+          </div>
+          <div class="text-end mt-3">
+            <h5 class="text-dark">Total: <span id="cartTotal">IDR 0</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Confirmation Modal -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="checkoutModalLabel">Konfirmasi Checkout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="checkoutItems" class="text-dark">
+            <!-- Checkout items will be listed here -->
+          </div>
+          <div class="text-end mt-3">
+            <h5 class="text-dark">Total Pembayaran: <span id="checkoutTotal">IDR 0</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+          <button type="button" class="btn btn-primary" onclick="confirmCheckout()">Ya, Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="../static/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
+            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>Nasgor Nyoman</span></h2>
+            <p data-aos="fade-up" data-aos-delay="200">Delivering great food for more than 18 years!</p>
+            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+              <a href="#menu" class="cta-btn">Our Menu</a>
+              <a href="#book-a-table" class="cta-btn">Book a Table</a>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="../static/img/logo UTS.png" class="img-fluid about-img" alt="">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 content">
+            <h3>Selamat Datang di Nasgor Nyoman</h3>
+            <p class="fst-italic">
+              Nasgor Nyoman adalah restoran khas Indonesia yang menyajikan berbagai varian nasi goreng yang lezat dan bergizi. Dengan bahan-bahan segar dan resep yang tersembunyi rahasia, kami berkomitmen untuk memberikan pengalaman makan yang tak terlupakan.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Rasa yang Unik: Kami menggunakan bumbu-bumbu khas Indonesia yang memberikan rasa yang gurih dan lezat.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Kualitas Bahan: Kami memilih bahan-bahan terbaik untuk memastikan setiap porsi nasi goreng kami adalah yang terbaik.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Layanan Ramah: Tim kami siap menyambut Anda dengan senyuman hangat dan pelayanan yang ramah.</span></li>
+            </ul>
+            <p>
+              Mari coba dan rasakan kelezatan nasi goreng yang tak tertandingi di Nasgor Nyoman. Kami menantikan Anda!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>WHY US</h2>
+        <p>Why Choose Our Restaurant</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <span>01</span>
+              <h4><a href="" class="stretched-link">Keunggulan Kuliner</a></h4>
+              <p>Chef kami adalah seniman kuliner yang menciptakan hidangan lezat dengan menggunakan bahan-bahan segar berkualitas. Setiap gigitan adalah karya seni yang dirancang untuk memanjakan lidah Anda.</p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-item">
+              <span>02</span>
+              <h4><a href="" class="stretched-link">Pilihan Menu yang Beragam</a></h4>
+              <p>Dari hidangan favorit tradisional hingga kreasi baru yang inovatif, menu kami yang beragam memiliki sesuatu untuk semua orang. Kami menawarkan pilihan vegetarian, vegan, dan bebas gluten untuk memenuhi semua preferensi diet.</p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-item">
+              <span>03</span>
+              <h4><a href="" class="stretched-link">Layanan yang Luar Biasa</a></h4>
+              <p>Staf kami yang berdedikasi berkomitmen untuk memberikan pelayanan terbaik, memastikan setiap kunjungan menjadi pengalaman yang tak terlupakan. Kami berusaha melebihi harapan Anda dalam setiap interaksi.</p>
+            </div>
+          </div><!-- Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Menu</h2>
+        <p>Check Our Tasty Menu</p>
+      </div><!-- End Section Title -->
+
+      <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul class="menu-filters isotope-filters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-starters">Nasi Goreng Spesial</li>
+              <li data-filter=".filter-salads">Nasi Goreng Pedas</li>
+              <li data-filter=".filter-specialty">Nasi Goreng Khas Daerah</li>
+            </ul>
+          </div>
+        </div><!-- Menu Filters -->
+
+        <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="https://asset.kompas.com/crops/VcgvggZKE2VHqIAUp1pyHFXXYCs=/202x66:1000x599/1200x800/data/photo/2023/05/07/6456a450d2edd.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Ayam</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 25,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Ayam', 25000, 'https://asset.kompas.com/crops/VcgvggZKE2VHqIAUp1pyHFXXYCs=/202x66:1000x599/1200x800/data/photo/2023/05/07/6456a450d2edd.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan potongan ayam gurih, telur, dan sayuran segar.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="https://www.masakapahariini.com/wp-content/uploads/2022/04/resep-nasi-goreng-jawa-featured.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Jawa</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 25,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Jawa', 25000, 'https://www.masakapahariini.com/wp-content/uploads/2022/04/resep-nasi-goreng-jawa-featured.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan bumbu khas Jawa, lengkap dengan ayam suwir dan kerupuk.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="https://img.kurio.network/5af-ofhunNP2Y7yAHWTf8v7yFWg=/320x320/filters:quality(80)/https://kurio-img.kurioapps.com/24/05/12/7402d401-1645-4b1a-91d4-4e5a257fa528.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Seafood</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 30,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Seafood', 30000, 'https://img.kurio.network/5af-ofhunNP2Y7yAHWTf8v7yFWg=/320x320/filters:quality(80)/https://kurio-img.kurioapps.com/24/05/12/7402d401-1645-4b1a-91d4-4e5a257fa528.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan aneka seafood segar, seperti udang, cumi, dan ikan.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="https://www.bakmigm.com/cfind/source/thumb/images/menu/cover_w480_h480_nasi-goreng-matah.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Sambal Matah</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 28,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Sambal Matah', 28000, 'https://www.bakmigm.com/cfind/source/thumb/images/menu/cover_w480_h480_nasi-goreng-matah.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan sambal matah khas Bali yang pedas dan segar.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="https://cdn1-production-images-kly.akamaized.net/5Mqp5w9U2_JDnumH6xDve7noT1A=/0x13:999x576/1200x675/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/4253675/original/081006200_1670473107-shutterstock_494006803.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Padang</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 27,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Padang', 27000, 'https://cdn1-production-images-kly.akamaized.net/5Mqp5w9U2_JDnumH6xDve7noT1A=/0x13:999x576/1200x675/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/4253675/original/081006200_1670473107-shutterstock_494006803.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan bumbu rendang khas Padang, penuh dengan cita rasa.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="https://madamtan.com/upload/images/menu/img_xWTu4et.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Kampung</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 20,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Kampung', 20000, 'https://madamtan.com/upload/images/menu/img_xWTu4et.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng tradisional dengan bumbu khas dan ikan teri.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="https://cdn.yummy.co.id/content-images/images/20231007/zrrP6tux2U87qiua1dONIFEhsCfofSrt-31363936363933353430d41d8cd98f00b204e9800998ecf8427e.jpg?x-oss-process=image/resize,w_388,h_388,m_fixed,x-oss-process=image/format,webp" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Cabe Ijo</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 27,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Cabe Ijo', 27000, 'https://cdn.yummy.co.id/content-images/images/20231007/zrrP6tux2U87qiua1dONIFEhsCfofSrt-31363936363933353430d41d8cd98f00b204e9800998ecf8427e.jpg?x-oss-process=image/resize,w_388,h_388,m_fixed,x-oss-process=image/format,webp')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan cabe hijau yang memberikan rasa pedas yang nikmat.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="https://www.dapurkobe.co.id/wp-content/uploads/nasi-goreng-chili-oil-boncabe.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Setan</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 30,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Setan', 30000, 'https://www.dapurkobe.co.id/wp-content/uploads/nasi-goreng-chili-oil-boncabe.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng super pedas untuk Anda yang berani mencoba tantangan.
+            </div>
+          </div><!-- Menu Item -->
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/18/52/35/64/nasi-goreng-medan-ciak.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nasi Goreng Medan</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <span>IDR 25,000</span>
+                <button class="btn btn-primary btn-sm" onclick="addToCart('Nasi Goreng Medan', 25000, 'https://media-cdn.tripadvisor.com/media/photo-m/1280/18/52/35/64/nasi-goreng-medan-ciak.jpg')">Add to Cart</button>
+              </div>
+            </div>
+            <div class="menu-ingredients">
+              Nasi goreng dengan sentuhan bumbu khas Medan yang lezat.
+            </div>
+          </div><!-- Menu Item -->
+
+        </div><!-- Menu Container -->
+
+      </div>
+
+    </section><!-- /Menu Section -->
+
+    <!-- Specials Section -->
+    <section id="specials" class="specials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Specials</h2>
+        <p>Check Our Specials</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#specials-tab-1">Nasi Goreng Spesial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-2">Nasi Goreng Seafood</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-3">Nasi Goreng Kambing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-4">Nasi Goreng Petai</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-5">Nasi Goreng Ikan Asin</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="specials-tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nasi Goreng Spesial Nyoman</h3>
+                    <p class="fst-italic">Menu andalan kami yang dibuat dengan bumbu rahasia turun temurun</p>
+                    <p>Nasi goreng spesial kami dibuat dengan bahan-bahan berkualitas tinggi dan rempah pilihan. Disajikan dengan telur mata sapi, ayam suwir, udang, dan acar segar. Cocok untuk Anda yang menginginkan cita rasa autentik nasi goreng Indonesia.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="https://asset.kompas.com/crops/kGAAkMvrUC2UOgV-KYEbqOdpbH0=/0x1581:3915x4191/1200x800/data/photo/2022/07/21/62d95ed36e228.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nasi Goreng Seafood Super</h3>
+                    <p class="fst-italic">Kombinasi sempurna seafood segar dengan bumbu nasi goreng spesial</p>
+                    <p>Dimasak dengan berbagai seafood segar seperti udang, cumi, dan kerang. Dibumbui dengan rempah-rempah pilihan dan saus tiram spesial. Cocok untuk pencinta seafood yang menginginkan sensasi rasa laut dalam setiap suapan.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjAJCwNHG1oexSYulHQj0-WlQSqKvvpOG2w&s" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nasi Goreng Kambing Istimewa</h3>
+                    <p class="fst-italic">Paduan sempurna daging kambing empuk dengan bumbu rempah khas Timur Tengah</p>
+                    <p>Nasi goreng dengan potongan daging kambing pilihan yang empuk dan bumbu rempah khas Timur Tengah. Disajikan dengan acar dan emping melinjo. Sangat cocok bagi Anda penggemar masakan kambing.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="https://demediapustaka.com/wp-content/uploads/2016/09/3.-NASI-GORENG-KAMBING.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nasi Goreng Petai Mantap</h3>
+                    <p class="fst-italic">Sensasi pedas dan aroma petai yang menggugah selera</p>
+                    <p>Nasi goreng dengan tambahan petai segar pilihan yang memberikan aroma dan rasa yang khas. Dipadukan dengan cabai dan bumbu rahasia kami. Cocok untuk pecinta petai dan masakan pedas.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="https://i.ytimg.com/vi/v_Wu_yozy0c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCzDenGrg_VLcOxeVuBT6220w3DhA" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nasi Goreng Ikan Asin Klasik</h3>
+                    <p class="fst-italic">Perpaduan sempurna ikan asin berkualitas dengan bumbu tradisional</p>
+                    <p>Nasi goreng dengan tambahan ikan asin berkualitas yang memberikan cita rasa gurih dan asin yang pas. Disajikan dengan telur dadar dan acar segar. Sangat cocok bagi Anda yang merindukan masakan rumahan.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="https://www.masakapahariini.com/wp-content/uploads/2020/05/nasi-goreng-ikan-asin-8.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Specials Section -->
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <img class="slider-bg" src="../static/img/events-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container">
+
+        <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Birthday Parties</h3>
+                  <div class="price">
+                    <p><span>IDR 2.800.000</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Rayakan momen spesial ulang tahun Anda bersama keluarga dan teman-teman dengan hidangan lezat dari kami.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>Paket lengkap menu nasi goreng untuk 20 orang.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Dekorasi ruangan yang menarik dan meriah.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Kue ulang tahun spesial dari chef kami.</span></li>
+                  </ul>
+                  <p>
+                    Nikmati pengalaman pesta ulang tahun yang tak terlupakan dengan suasana yang nyaman dan pelayanan terbaik dari tim kami.
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Private Parties</h3>
+                  <div class="price">
+                    <p><span>IDR 4.300.000</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Ruangan privat eksklusif untuk acara spesial Anda dengan keluarga atau rekan bisnis.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>Ruangan VIP dengan kapasitas hingga 30 orang.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Menu premium dengan pilihan hidangan spesial.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Pelayanan pribadi dari staff khusus kami.</span></li>
+                  </ul>
+                  <p>
+                    Sempurnakan acara spesial Anda dengan suasana yang eksklusif dan privat, didukung dengan layanan premium kami.
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=2070&auto=format&fit=crop" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Custom Parties</h3>
+                  <div class="price">
+                    <p><span>IDR 1.500.000</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Rancang pesta sesuai keinginan Anda dengan berbagai pilihan menu dan dekorasi yang dapat disesuaikan.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>Pilihan menu yang dapat disesuaikan dengan selera Anda.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Dekorasi yang dapat disesuaikan dengan tema acara.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Fleksibilitas dalam pengaturan waktu dan jumlah tamu.</span></li>
+                  </ul>
+                  <p>
+                    Buat acara Anda menjadi lebih berkesan dengan paket pesta yang dapat disesuaikan sepenuhnya dengan keinginan Anda.
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+    <!-- Book A Table Section -->
+    <section id="book-a-table" class="book-a-table section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>RESERVATION</h2>
+        <p>Book a Table</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+          </div>
+
+          <div class="text-center mt-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+            <button type="submit">Book a Table</button>
+          </div>
+        </form><!-- End Reservation Form -->
+
+      </div>
+
+    </section><!-- /Book A Table Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>What they're saying about us</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" "="">
+            <p>
+              <i class=" bi bi-quote quote-icon-left"></i>
+                <span>Nasi goreng di sini sangat enak dan autentik. Bumbu-bumbunya pas dan porsinya sangat mengenyangkan. Pelayanannya juga ramah dan cepat. Saya pasti akan kembali lagi!</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="../static/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Budi Santoso</h3>
+                <h4>Pengusaha</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Tempat makan favorit saya di kota ini. Menu nasi gorengnya beragam dan semuanya lezat. Suasananya juga nyaman untuk makan bersama keluarga. Harganya sangat terjangkau untuk kualitas yang ditawarkan.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="../static/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Siti Rahayu</h3>
+                <h4>Desainer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Sebagai pecinta nasi goreng, saya sangat merekomendasikan tempat ini. Nasi goreng seafoodnya adalah yang terbaik yang pernah saya coba. Bahan-bahannya segar dan rasanya luar biasa.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="../static/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Dewi Kusuma</h3>
+                <h4>Pemilik Toko</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Saya sering makan di sini dan tidak pernah kecewa. Nasi goreng pedas spesialnya benar-benar mantap. Stafnya sangat memperhatikan kebersihan dan kualitas makanan.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="../static/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Adi Pratama</h3>
+                <h4>Pekerja Lepas</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Restoran ini adalah bukti bahwa makanan sederhana bisa menjadi luar biasa jika dimasak dengan benar. Nasi goreng kampungnya mengingatkan saya akan masakan rumahan yang autentik.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="../static/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>Rini Wijaya</h3>
+                <h4>Pengusaha</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p>Some photos from Our Restaurant</p>
+      </div><!-- End Section Title -->
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="../static/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="../static/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+    <!-- Chefs Section -->
+    <section id="chefs" class="chefs section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>Necessitatibus eius consequatur</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="../static/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Walter White</h4>
+                  <span>Master Chef</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="../static/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Patissier</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <img src="../static/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>William Anderson</h4>
+                  <span>Cook</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Chefs Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Contact Us</p>
+      </div><!-- End Section Title -->
+
+      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2904629!2d106.8271528!3d-6.2251232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f3d3f3f3f3%3A0x2e69f3f3d3f3f3f3!2sJl.%20Gatot%20Subroto%20No.1%2C%20RT.1%2FRW.1%2C%20Karet%20Semanggi%2C%20Kecamatan%20Setiabudi%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012930!5e0!3m2!1sid!2sid!4v1676961268712!5m2!1sid!2sid" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Jl. Gatot Subroto No.1, Jakarta Selatan</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Open Hours</h3>
+                <p>Senin - Minggu:<br>17:00 - 24:00</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>0812-3456-7890</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>info@example.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Restaurantly</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Jl. Gatot Subroto No.1, Jakarta Selatan</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>0812-3456-7890</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Restaurantly</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
