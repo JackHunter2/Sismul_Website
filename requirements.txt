@@ -1,7 +1,2 @@
 flask
-flask-sqlalchemy
-flask-bcrypt
-flask-migrate
-flask-login
 gunicorn
-werkzeug<2.1.0
