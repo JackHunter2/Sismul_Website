@@ -304,3 +304,58 @@ function confirmCheckout() {
   const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
   checkoutModal.hide();
 }
+
+function submitOrder() {
+  const orderTotalText = document.getElementById("checkoutTotal").innerText; // Ambil nilai dari span
+  const orderTotal = orderTotalText.replace(/[^\d.-]/g, ""); // Hapus 'IDR', koma, dan karakter non-angka
+
+  // Set nilai ke input hidden
+  document.getElementById("orderTotal").value = orderTotal;
+
+  // Opsional: Cek validasi data sebelum submit
+  if (!orderTotal || isNaN(orderTotal)) {
+    alert("Total pembayaran tidak valid.");
+    return;
+  }
+
+  const customerName = document.getElementById("customerName").value;
+  const customerPhone = document.getElementById("customerPhone").value;
+  const customerAddress = document.getElementById("customerAddress").value;
+  const orderDetails = document.getElementById("orderDetails").value;
+
+  if (!customerName || !customerPhone || !customerAddress) {
+    alert("Harap lengkapi semua informasi!");
+    return;
+  }
+
+  const data = {
+    customerName,
+    customerPhone,
+    customerAddress,
+    orderDetails,
+    orderTotal,
+  };
+
+  fetch("/submit_order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      if (result.success) {
+        alert(result.message);
+        // Reset modal atau alihkan pengguna
+        document.getElementById("checkoutForm").reset();
+        $("#checkoutModal").modal("hide");
+      } else {
+        alert("Gagal menyimpan pesanan: " + result.message);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat menyimpan pesanan.");
+    });
+}

@@ -1756,3 +1756,60 @@ section,
 .btn-cart i {
   margin-right: 8px; /* Space between icon and text */
 }
+
+/*--------------------------------------------------------------
+# Dashboard Styles
+--------------------------------------------------------------*/
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-stats {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.dashboard-table {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.table-dark {
+  background: rgba(33, 37, 41, 0.8);
+}
+
+.dashboard .chart-container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}
+
+.dashboard .badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dashboard .table-responsive {
+  margin: 15px 0;
+}
+
+.dashboard .table th {
+  border-color: rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  padding: 12px;
+}
+
+.dashboard .table td {
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  vertical-align: middle;
+}
+
