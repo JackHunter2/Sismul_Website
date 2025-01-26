@@ -4,3 +4,4 @@ gunicorn
 python-dotenv
 flask-bcrypt
 flask-migrate
+flask_login
